@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "Hariprasad Rana",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -19.2, "left": -340.76, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -191.7, "left": -399, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -60.8,
+      "left": -100,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v19.2" ] ],
+    [ "dht1:SDA", "esp:4", "green", [ "v38.4", "h172.9", "v163.2" ] ],
+    [ "dht1:GND", "esp:GND.3", "black", [ "v28.8", "h163.2", "v115.2" ] ],
+    [ "lcd1:SDA", "esp:21", "orange", [ "h-115.2", "v19.4" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h-86.4", "v29.1" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-76.8", "v230.5", "h-182.4", "v-28.8", "h-9.6" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-124.8", "v38.4" ] ]
+  ],
+  "dependencies": {}
+}
